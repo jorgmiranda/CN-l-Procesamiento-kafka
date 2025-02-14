@@ -2,10 +2,13 @@ package com.cloud.procesamiento_kafka.dto;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class AlertaDTO {
 
     private String mensaje; // Mensaje de alerta descriptivo
     private String tipo; // Tipo de alerta (e.g., "frecuencia cardiaca crítica", "hipotermia")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS")
     private LocalDateTime fechaGeneracion; // Fecha y hora en que se generó la alerta
     private Boolean atendida; // Indica si la alerta ha sido gestionada
     private String severidad; //Severidad de la alerta (Leve, Moderado, Crítico)

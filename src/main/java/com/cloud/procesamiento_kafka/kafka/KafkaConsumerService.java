@@ -28,9 +28,10 @@ public class KafkaConsumerService {
             for (AlertaDTO alerta : alertas) {
                 if ("crítico".equals(alerta.getSeveridad())) {
                     // Enviar alerta crítica a RabbitMQ
-                    //rabbitMQProducer.enviarAlerta(alerta);
-                    kafkaProducerService.enviarAlerta(alerta);
-                } else if ("moderado".equals(alerta.getSeveridad())) {
+                    rabbitMQProducer.enviarAlerta(alerta);
+                    // kafkaProducerService.enviarAlerta(alerta);
+                } 
+                else if ("moderado".equals(alerta.getSeveridad())) {
                     // Enviar alerta moderada al tópico `alertas`
                     kafkaProducerService.enviarAlerta(alerta);
                 }
